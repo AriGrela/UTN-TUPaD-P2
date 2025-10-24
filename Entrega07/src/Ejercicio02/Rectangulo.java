@@ -1,13 +1,29 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Ejercicio02;
 
-/**
- *
- * @author Kalfito
- */
-public class Rectangulo {
-    
+public class Rectangulo extends Figura {
+    private double ancho;
+    private double alto;
+
+    public Rectangulo(String nombre, double ancho, double alto) {
+        super(nombre);
+        this.ancho = ancho;
+        this.alto = alto;
+    }
+
+    @Override
+    public double calcularArea() {
+        return ancho * alto;
+    }
+
+    public static void main(String[] args) {
+        Figura[] figuras = {
+            new Circulo("Círculo", 3),
+            new Rectangulo("Rectángulo", 4, 5)
+        };
+
+        for (Figura f : figuras) {
+            System.out.println(f.getNombre() + " - Área: " + f.calcularArea());
+        }
+    }
 }
